@@ -1,2 +1,2 @@
-# zenvora_stylehub
-This Repository is for E-Commerce Seller who is willing to stablish his personal identity on behalf of me ( Md Dilshad Amir ). 
+# Tabish Raza Zenvora Store Website for his e-comerce product..
+This website will list the products of Zenvora Store as well as to establish his zenvora store identity on internet. 
