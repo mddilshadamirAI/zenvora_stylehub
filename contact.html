@@ -49,25 +49,32 @@
             </div>
             <div class="contact-item">
               <span class="label">Email</span>
-              <span class="value">storezenvora786@gmail.com</span>
+              <span class="value">
+                <a href="mailto:storezenvora786@gmail.com" style="color: inherit; text-decoration: underline;">storezenvora786@gmail.com</a>
+              </span>
             </div>
             <div class="contact-item">
               <span class="label">Phone / WhatsApp</span>
-              <span class="value">+917856018687</span>
+              <span class="value">
+                <a href="tel:+917856018687" style="color: inherit; text-decoration: underline;">+917856018687</a> 
+                (<a href="https://wa.me/917856018687" target="_blank" style="color: inherit; text-decoration: underline;">Chat on WhatsApp</a>)
+              </span>
             </div>
             <div class="contact-item">
-              <span class="label">Floor No.: GROUND FLOOR,Building No./Flat No.: 32,Road/Street: GOLAM JILANI KHAN ROAD,City/Town/Village: Kolkata,District: Kolkata,State: West Bengal,PIN Code: 700039</span>
-              <span class="value"></span>
+              <span class="label">Address</span>
+              <span class="value">GROUND FLOOR, Building No. 32, GOLAM JILANI KHAN ROAD, Kolkata, West Bengal - 700039</span>
             </div>
             <div class="contact-item">
               <span class="label">Social Media</span>
-              <span class="value">Instagram: [https://www.instagram.com/zenvora.stylehub/] </span>
+              <span class="value">
+                Instagram: <a href="https://www.instagram.com/zenvora.stylehub/" target="_blank" style="color: inherit; text-decoration: underline;">@zenvora.stylehub</a>
+              </span>
             </div>
           </div>
         </div>
 
         <div>
-          <form class="contact-form" onsubmit="event.preventDefault(); alert('Form structure is ready. Backend integration required for email submission.');">
+          <form class="contact-form" id="contactForm">
             <h3 style="font-size: 1.5rem; margin-bottom: 16px;">Send a Message</h3>
             
             <div class="form-group">
@@ -87,7 +94,7 @@
 
             <div class="form-group">
               <label for="subject">Subject</label>
-              <input type="text" id="subject" class="form-control" placeholder="Subject of your message">
+              <input type="subject" id="subject" class="form-control" placeholder="Subject of your message">
             </div>
 
             <div class="form-group">
@@ -95,7 +102,7 @@
               <textarea id="message" rows="4" class="form-control" placeholder="Type your message here..." required></textarea>
             </div>
 
-            <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+            <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message via WhatsApp</button>
           </form>
         </div>
       </div>
@@ -109,6 +116,25 @@
       </div>
     </div>
   </footer>
+
+  <script>
+    document.getElementById('contactForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const subject = document.getElementById('subject').value.trim();
+      const message = document.getElementById('message').value.trim();
+
+      // Formulate WhatsApp message text
+      const text = `Hello Zenvora Stores,%0A%0A*Name:* ${encodeURIComponent(name)}%0A*Email:* ${encodeURIComponent(email)}%0A*Phone:* ${encodeURIComponent(phone)}%0A*Subject:* ${encodeURIComponent(subject)}%0A*Message:* ${encodeURIComponent(message)}`;
+      
+      // Open WhatsApp chat with pre-filled details
+      const whatsappURL = `https://wa.me/917856018687?text=${text}`;
+      window.open(whatsappURL, '_blank');
+    });
+  </script>
 
 </body>
 </html>
